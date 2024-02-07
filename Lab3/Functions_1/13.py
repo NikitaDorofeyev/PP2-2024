@@ -8,7 +8,7 @@ randomNumber = random.randint(1, 20)
 
 print(f"Well, {name}, I am thinking of a number between 1 and 20\nTake a guess.")
 
-count = 0
+count = 1
 
 guess = int(input())
 
