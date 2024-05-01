@@ -17,9 +17,10 @@ cursor.execute(
 print(f"Server version: {cursor.fetchone()}")
 
 # create table
-# with connection.cursor() as cursor:\\
+# with connection.cursor() as cursor:
 
-# Design tables for PhoneBook.////////////////
+# Design tables for PhoneBook.
+
 cursor.execute(
     """CREATE TABLE IF NOT EXISTS users(
         first_name varchar(50),
@@ -28,14 +29,15 @@ cursor.execute(
 # connection.commit()
 print(f"Table created!")
 
-# Implement two ways of inserting data into the PhoneBook./////
+# Implement two ways of inserting data into the PhoneBook
+
 out = "yes"
 while True:
     print("Insert (csv) file? yes or no")
     out = input()
     if out == "no":
         break
-    with open('contacts.csv', 'r') as f:
+    with open('Lab10/contacts.csv', 'r') as f:
         reader = csv.reader(f)
         next(reader)
         for row in reader:
@@ -53,7 +55,9 @@ while True:
     cursor.execute(f"""INSERT INTO users (first_name, phone_number) VAlUES
 ('{name}', '{phone}');""")
     break
-# Implement updating data in the table (change user first name or phone)//////
+
+# Implement updating data in the table (change user first name or phone)
+
 while True:
     print("Change some data? yes or no")
     out = input()
@@ -79,8 +83,7 @@ while True:
             WHERE first_name = '{phone}';""")
     break
 
-
-# Querying data from the tables (with different filters)////////
+# Querying data from the tables (with different filters)
 while True:
     print("Show table? yes or no")
     out = input()
@@ -105,7 +108,7 @@ while True:
             print(row[0], "phone -", row[1])
     break
 
-# DELETE DATA//////////////
+# DELETE DATA
 
 while True:
     print("Delete more users? yes or no")
